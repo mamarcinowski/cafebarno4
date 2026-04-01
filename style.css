@@ -41,7 +41,7 @@ nav {
     display: flex; align-items: center; justify-content: center; text-align: center;
 }
 .hero h1 { font-size: 5rem; line-height: 0.9; margin-bottom: 20px; }
-.hero p { font-size: 1.4rem; margin-bottom: 35px; max-width: 600px; }
+.hero p { font-size: 1.2rem; margin-bottom: 35px; max-width: 600px; }
 
 .btn-yellow, .btn-white { padding: 15px 30px; text-decoration: none; font-weight: bold; display: inline-block; margin: 10px; border-radius: 4px; transition: 0.3s; }
 .btn-yellow { background: var(--yellow); color: black; border: 2px solid var(--yellow); }
