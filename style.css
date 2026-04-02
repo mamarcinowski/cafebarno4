@@ -10,6 +10,7 @@ body {
     font-family: 'Roboto Condensed', sans-serif; 
     background: var(--black); color: var(--white); 
     line-height: 1.6; overflow-x: hidden;
+    background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='30' height='30' patternTransform='scale(1) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='%23000000ff'/><path d='M0 22.5h30v15H0zm15-15h30v15H15m-30-15h30v15h-30zm15-15h30v15H0z'  stroke-width='0.5' stroke='%23ffcc0060' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>")
 }
 
 h1, h2, h3, .logo { font-family: 'Bebas Neue', cursive; letter-spacing: 1px; }
@@ -17,7 +18,7 @@ h1, h2, h3, .logo { font-family: 'Bebas Neue', cursive; letter-spacing: 1px; }
 .yellow { color: var(--yellow); }
 .center { text-align: center; margin-bottom: 40px; font-size: 3.5rem; }
 .section { padding: 80px 0; }
-.bg-darker { background: #050505; }
+.bg-darker { background: var(--black); }
 
 /* Navbar */
 nav {
@@ -36,7 +37,7 @@ nav {
 /* Hero */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('hero.jpg');
+    background: linear-gradient(rgba(0,0,0,0.2) 0, rgba(0,0,0,0.9)) 75%, url('hero.jpg');
     background-size: cover; background-position: center;
     display: flex; align-items: center; justify-content: center; text-align: center;
 }
@@ -52,7 +53,7 @@ nav {
 .info-strip { background: var(--yellow); color: black; display: flex; justify-content: space-around; padding: 20px 0; font-weight: bold; text-transform: uppercase; font-size: 0.9rem; }
 
 /* Grid & About */
-.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; padding: 16px; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; padding: 128px 16px; background-color: rgba(0,0,0,0.9); }
 .about-text h2 { font-size: 3rem; color: var(--yellow); margin-bottom: 20px; }
 .about-text p { margin-bottom: 8px; }
 .address-box { background: var(--grey); padding: 15px; border-left: 4px solid var(--yellow); margin-top: 25px; font-weight: bold; font-size: 1.1rem; }
@@ -73,7 +74,7 @@ nav {
 .rev-card span { display: block; margin-top: 20px; color: var(--yellow); font-weight: bold; font-style: normal; }
 
 /* Footer */
-footer { padding: 50px 0 110px; border-top: 1px solid #222; }
+footer { padding: 50px 0 110px; border-top: 1px solid #222; background-color: #000000; }
 .footer-content { display: flex; justify-content: space-between; align-items: center; }
 .f-social a { color: white; font-size: 2rem; margin-left: 20px; transition: 0.3s; }
 .f-social a:hover { color: var(--yellow); }
