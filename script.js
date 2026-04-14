@@ -11,12 +11,45 @@ async function fetchMatches() {
     try {
         const response = await fetch('https://www.scorebat.com/video-api/v3/');
         const data = await response.json();
-        
-        list.innerHTML = '';
-        // Wybieramy 4 najnowsze transmisje
-        const recent = data.response.slice(0, 4);
 
-        recent.forEach((m, i) => {
+        list.innerHTML = '';
+
+        const polishTeams = [
+            'poland', 'polska', 'wisła', 'wisla', 'sandecja', 'legia', 'lech', 'raków', 'rakow',
+            'cracovia', 'pogoń', 'pogon', 'arka', 'śląsk', 'slask', 'jagiellonia', 'płock'
+        ];
+
+        const getPriority = (match) => {
+            const title = (match.title || '').toLowerCase();
+            const competition = (match.competition || '').toLowerCase();
+
+            const contains = (text, patterns) => patterns.some((pattern) => text.includes(pattern));
+            const hasPolishTeam = polishTeams.some((team) => title.includes(team) || competition.includes(team));
+
+            const isPoland = contains(title, ['poland', 'polska']) || contains(competition, ['poland', 'polska']);
+            const isWisla = contains(title, ['wisła', 'wisla']) || contains(competition, ['wisła', 'wisla']);
+            const isSandecja = contains(title, ['sandecja']) || contains(competition, ['sandecja']);
+            const isChampionsLeague = contains(competition, ['champions league', 'ucl']) || title.includes('champions league');
+            const isEuroCup = contains(competition, ['europa league', 'conference league', 'european cup', 'uefa']) && !isChampionsLeague;
+
+            if (isPoland) return 1;
+            if (isWisla) return 2;
+            if (isSandecja) return 3;
+            if (isChampionsLeague) return 4;
+            if (isEuroCup && hasPolishTeam) return 5;
+            return 6;
+        };
+
+        const ordered = data.response
+            .map((match, index) => ({ match, index, priority: getPriority(match) }))
+            .sort((a, b) => {
+                if (a.priority !== b.priority) return a.priority - b.priority;
+                return a.index - b.index;
+            })
+            .slice(0, 4)
+            .map((item) => item.match);
+
+        ordered.forEach((m, i) => {
             const card = document.createElement('div');
             card.className = 'match-card';
             card.setAttribute('data-aos', 'fade-up');
