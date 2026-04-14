@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cafeno4.pl/sitemap.xml
+Host: https://cafeno4.pl

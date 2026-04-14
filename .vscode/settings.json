@@ -1,0 +1,17 @@
+{
+  "chat.tools.terminal.autoApprove": {
+    "exec(\"\"\"from": true,
+    "from": true,
+    "path": true,
+    "print(data[:200])": true,
+    "data[:200]": true,
+    "print(len(data))": true,
+    "len(data)": true,
+    "data": true,
+    "root": true,
+    "/^from pathlib import Path\nroot = Path\\(r'c:\\\\Projects\\\\priv\\\\cafebarno4'\\)\nsrc = root / 'src' / 'style\\.css'\ndest = root / 'style\\.css'\ndest\\.write_text\\(src\\.read_text\\(encoding='utf-8'\\), encoding='utf-8'\\)\nprint\\('style\\.css restored'\\)$/": {
+      "approve": true,
+      "matchCommandLine": true
+    }
+  }
+}
